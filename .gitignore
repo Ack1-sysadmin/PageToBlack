@@ -16,3 +16,8 @@ dist/
 Thumbs.db
 .vscode/
 .idea/
+
+# WXT
+.wxt/
+.output/
+test-results/

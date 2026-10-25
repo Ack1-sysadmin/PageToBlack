@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PageToBlack</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <img src="/icon/48.png" alt="" width="24" height="24" />
+        <h1 data-i18n="extName"></h1>
+      </header>
+
+      <label class="row">
+        <span data-i18n="popupGlobal"></span>
+        <input id="global" type="checkbox" role="switch" />
+      </label>
+
+      <label class="row" id="site-row">
+        <span id="site-label"></span>
+        <input id="site" type="checkbox" role="switch" />
+      </label>
+
+      <p id="status" class="status"></p>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

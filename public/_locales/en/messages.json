@@ -1,0 +1,38 @@
+{
+  "extName": {
+    "message": "PageToBlack"
+  },
+  "extDescription": {
+    "message": "True OLED dark mode for every website: pure black backgrounds, dimmed text, no white flashes."
+  },
+  "popupGlobal": {
+    "message": "Enabled on all sites"
+  },
+  "popupSite": {
+    "message": "Enabled on $HOST$",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "example.com"
+      }
+    }
+  },
+  "statusFilter": {
+    "message": "Light page: inverted with OLED black."
+  },
+  "statusBlackening": {
+    "message": "Dark page: background set to pure black."
+  },
+  "statusDetecting": {
+    "message": "Analysing page…"
+  },
+  "statusOff": {
+    "message": "Switched off for this page."
+  },
+  "statusUnavailable": {
+    "message": "Not available on this page. Reload the tab if it was open before installing."
+  },
+  "commandToggleSite": {
+    "message": "Toggle PageToBlack on the current site"
+  }
+}

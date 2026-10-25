@@ -31,6 +31,9 @@ aliases: [Start, Index]
 - [[ADR-0003 MIT-Lizenz]]
 - [[ADR-0004 Zweisprachige UI]]
 
+## Tests
+- [[Test M0 2026-10-25]]
+
 ## Sonstiges
 - [[Glossar]]
 - Vorlagen liegen in `99 Templates` (Obsidian → *Vorlage einfügen*)

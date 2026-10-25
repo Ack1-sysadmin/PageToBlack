@@ -7,7 +7,35 @@
 - 👁️ **Gedämpfter Text** statt grellem Weiß
 - 🛡️ **Einbrennschutz** für statische, helle Elemente
 
-> Status: **Konzeptphase** – Machbarkeit geprüft, Implementierung startet mit Meilenstein M0.
+> Status: **Prototyp (M0)** – Filter-Modus mit OLED-Kurve, einfaches Blackening dunkler Seiten, Popup (DE/EN), Tastenkürzel <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>.
+
+## Entwicklung
+Voraussetzung: Node.js ≥ 20.
+
+```sh
+npm install
+npm run dev        # startet Chrome mit geladener Erweiterung und Hot Reload
+npm run build      # Build nach .output/chrome-mv3
+npm run zip        # ZIP für den Chrome Web Store
+```
+
+Manuell laden: `chrome://extensions` → Entwicklermodus → *Entpackte Erweiterung laden* → `.output/chrome-mv3`.
+
+Tests (Playwright mit echter Erweiterung, Pixelprüfung im Screenshot):
+
+```sh
+npx playwright install chromium   # einmalig
+npm run test:e2e
+```
+
+| Pfad | Inhalt |
+|---|---|
+| `src/entrypoints/content.ts` | Content Script: Anti-Weißblitz, Erkennung, Moduswahl |
+| `src/utils/engine.ts` | Filter-/Blackening-CSS und OLED-Kurve |
+| `src/utils/detect.ts` | Erkennung, ob eine Seite bereits dunkel ist |
+| `src/entrypoints/popup/` | Popup-UI |
+| `public/_locales/` | Übersetzungen (en, de) |
+| `tests/` | E2E-Tests und Testseiten |
 
 ## Wissensdatenbank
 Die Projektdokumentation ist ein [Obsidian](https://obsidian.md/)-Vault im Ordner [`docs/`](docs/).

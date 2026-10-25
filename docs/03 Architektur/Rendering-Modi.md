@@ -14,8 +14,19 @@ Für Seiten, die **schon dunkel** sind (erkannt über berechnete Hintergrundfarb
 ## 2. Filter-Modus (MVP, Fallback)
 `html { filter: invert(1) hue-rotate(180deg) }`, Medien (`img, video, picture, canvas, svg image, [style*=background-image]`) zurückinvertieren.
 - Weiß → `#000` automatisch; Hellgrau (`#f5f5f5`) wird `#0a0a0a` → zusätzliche Kontrast-/Helligkeitskurve, um Near-Black zu Schwarz zu drücken
-- Bekannte Probleme: `filter` erzeugt neuen Containing Block → `position: fixed` verhält sich anders; GPU-Last bei Scrollen
+- ~~`filter` erzeugt neuen Containing Block → `position: fixed` bricht~~ – gilt nicht für das Root-Element (in M0 per Test bestätigt); GPU-Last beim Scrollen beobachten
 - Gut als schneller Prototyp und als Notlösung für problematische Seiten
+
+### Umsetzung in M0
+- Filter auf `<html>`: `invert(1) hue-rotate(180deg) url(#ptb-oled-curve)`. Die SVG-Kurve (`feComponentTransfer`) setzt alles unter `blackThreshold` (0,08) auf `#000` und begrenzt Weiß auf `textMax` (0,88 ≈ `#e0e0e0`).
+- `position: fixed` bleibt intakt, weil der Filter auf dem Root-Element sitzt (die Spezifikation nimmt das Root-Element von der Containing-Block-Regel aus).
+- Content Script nur im Top-Frame. iframes werden vom Elternfilter mit invertiert, deshalb werden sie wie Medien zurückinvertiert.
+
+### Bekannte Einschränkungen des Filter-Modus
+- **Sättigungsverlust bei Bildern:** `hue-rotate` hebt sich nur ohne Clipping exakt auf. Natürliche Fotofarben (z. B. Hauttöne) bleiben korrekt, sehr gesättigte Farben (reines Rot → `#973737`) verlieren Sättigung.
+- **Dunkle Elemente auf hellen Seiten werden hell**, z. B. die dunkle Kopfleiste von GitHub (helles Theme) → große hellgraue Fläche. Abhilfe in M1: `prefers-color-scheme` erzwingen.
+- Hintergrundbilder aus Stylesheets (nicht inline) werden nicht zurückinvertiert.
+- Eingebettete iframes erscheinen im Original (also ggf. hell).
 
 ## 3. Dynamischer Modus (Beta)
 Analog zu Dark Readers Dynamic Mode, aber mit OLED-Regeln:

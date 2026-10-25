@@ -1,0 +1,38 @@
+{
+  "extName": {
+    "message": "PageToBlack"
+  },
+  "extDescription": {
+    "message": "Echter OLED-Dark-Mode für jede Webseite: reines Schwarz, gedämpfter Text, kein weißes Aufblitzen."
+  },
+  "popupGlobal": {
+    "message": "Auf allen Seiten aktiv"
+  },
+  "popupSite": {
+    "message": "Auf $HOST$ aktiv",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "example.com"
+      }
+    }
+  },
+  "statusFilter": {
+    "message": "Helle Seite: invertiert mit OLED-Schwarz."
+  },
+  "statusBlackening": {
+    "message": "Dunkle Seite: Hintergrund auf reines Schwarz gesetzt."
+  },
+  "statusDetecting": {
+    "message": "Seite wird analysiert …"
+  },
+  "statusOff": {
+    "message": "Für diese Seite ausgeschaltet."
+  },
+  "statusUnavailable": {
+    "message": "Auf dieser Seite nicht verfügbar. Tab neu laden, falls er schon vor der Installation offen war."
+  },
+  "commandToggleSite": {
+    "message": "PageToBlack auf der aktuellen Seite an-/ausschalten"
+  }
+}
