@@ -13,6 +13,13 @@ export const OLED = {
 };
 
 /**
+ * Blackening of already dark pages: pixels whose luma (sRGB-encoded) is below `from`
+ * become #000, above `to` they stay unchanged, with a soft ramp in between so dark
+ * image and video areas do not get hard edges. Covers #121212, #1e1e1e, GitHub #151b23.
+ */
+export const BLACKEN = { from: 0.12, to: 0.17 };
+
+/**
  * Ease-out between `minVisible` and `textMax`: lifts the dark-grey text colours that
  * light sites use (#333, #666, …) so they read as white-ish text, not grey, after inversion.
  */

@@ -11,6 +11,11 @@ Für Seiten, die **schon dunkel** sind (erkannt über berechnete Hintergrundfarb
 - Optional: Seiten mit eigenem Dark Mode, die ihn nur per `prefers-color-scheme` aktivieren, durch Umschreiben der `@media`-Regeln in den Dark Mode zwingen
 - Geringes Risiko, Seite zu zerstören, weil das Design schon dunkel gedacht ist
 
+### Umsetzung (M1)
+SVG-Filter `#ptb-blacken` auf `<html>`: Luma je Pixel → Maske → Pixel × Maske über Schwarz. Luma < 0,12 → `#000`, > 0,17 unverändert, dazwischen weicher Übergang (keine harten Kanten in dunklen Bild-/Videobereichen). Erfasst `#121212`, `#1e1e1e`, GitHub `#0d1117`/`#151b23`, YouTube `#0f0f0f`.
+- `html { min-height: 100% }` nötig: Mit Filter malt Chrome den Canvas außerhalb der `<html>`-Box in der Farbschema-Standardfarbe (`#121212`).
+- Nebenwirkung: sehr dunkle Bild-/Videobereiche werden ebenfalls schwarz (leichtes Absaufen der Schatten); Farben im Übergangsbereich (z. B. `#212121`) werden zu Fast-Schwarz.
+
 ## 2. Filter-Modus (MVP, Fallback)
 `html { filter: invert(1) hue-rotate(180deg) }`, Medien (`img, video, picture, canvas, svg image, [style*=background-image]`) zurückinvertieren.
 - Weiß → `#000` automatisch; Hellgrau (`#f5f5f5`) wird `#0a0a0a` → zusätzliche Kontrast-/Helligkeitskurve, um Near-Black zu Schwarz zu drücken

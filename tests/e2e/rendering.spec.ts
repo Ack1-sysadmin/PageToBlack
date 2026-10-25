@@ -53,8 +53,16 @@ test('dark page is blackened, not inverted', async ({ context }) => {
   const page = await context.newPage();
   await page.goto(`${ORIGIN}/dark.html`);
   await page.waitForTimeout(300);
-  const px = await pixels(page, { background: [400, 400], panel: [100, 70] });
+  const px = await pixels(page, {
+    background: [400, 400],
+    panel: [100, 70],
+    card: [360, 70],
+    chip: [550, 70],
+  });
   expect(px.background).toEqual([0, 0, 0]);
+  // Dark surfaces (GitHub #151b23) become pure black, clearly visible greys stay.
+  expect(px.card).toEqual([0, 0, 0]);
+  expect(px.chip).toEqual([0x3d, 0x3d, 0x3d]);
   // Not inverted: the light panel stays light.
   expect(max(px.panel)).toBeGreaterThan(200);
 });
@@ -64,8 +72,8 @@ test('dark wrapper on transparent body is detected as dark', async ({ context })
   await page.goto(`${ORIGIN}/wrapper-dark.html`);
   await page.waitForTimeout(300);
   const px = await pixels(page, { center: [400, 300] });
-  // Not inverted to white. (Blackening wrappers is M1 – for now it keeps #1e1e1e.)
-  expect(max(px.center)).toBeLessThan(40);
+  // Blackened, not inverted to white.
+  expect(px.center).toEqual([0, 0, 0]);
 });
 
 test('page that turns dark after load switches from filter to blackening', async ({ context }) => {

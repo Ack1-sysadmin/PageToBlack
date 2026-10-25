@@ -16,7 +16,7 @@ status: entwurf
 - [ ] Manueller Test auf dem G61SH
 
 ## M1 – MVP (2–3 Wochen)
-- [ ] Dark-Site-Blackening für alle Flächen, nicht nur `html`/`body` ([[Rendering-Modi]])
+- [x] Dark-Site-Blackening für alle Flächen per Luma-Filter ([[Rendering-Modi]])
 - [ ] **`prefers-color-scheme` erzwingen**: Seiten mit eigenem Dark Mode (GitHub, Wikipedia …) in diesen schalten statt invertieren – vermeidet hell invertierte Kopfleisten
 - [x] Erkennung „Seite ist dunkel“ (Basis in M0)
 - [ ] Einstellungen: Textgrau, Near-Black-Schwelle, Bild-Dimmen
