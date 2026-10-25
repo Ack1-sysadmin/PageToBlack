@@ -13,7 +13,7 @@ Jede Farbe wird je nach CSS-Eigenschaft einer Rolle zugeordnet:
 | Rolle | Eigenschaften | Ziel |
 |---|---|---|
 | **Fläche** | `background-color`, Verläufe | → `#000` (bzw. Elevation-Regel) |
-| **Text** | `color`, `fill` bei Text-SVG | → hell, max. `textMax` (Standard ≈ `#e0e0e0`) |
+| **Text** | `color`, `fill` bei Text-SVG | → hell, max. `textMax` (Standard ≈ `#f0f0f0`); graue Textfarben werden angehoben |
 | **Rahmen** | `border-color`, `outline`, `box-shadow` | → Dunkelgrau, klar sichtbar |
 | **Akzent** | gesättigte Farben (Links, Buttons) | Farbton behalten, Helligkeit/Sättigung begrenzen |
 

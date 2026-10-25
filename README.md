@@ -25,13 +25,15 @@ Tests (Playwright mit echter Erweiterung, Pixelprüfung im Screenshot):
 
 ```sh
 npx playwright install chromium   # einmalig
+npm test           # Unit-Tests (Vitest)
 npm run test:e2e
 ```
 
 | Pfad | Inhalt |
 |---|---|
 | `src/entrypoints/content.ts` | Content Script: Anti-Weißblitz, Erkennung, Moduswahl |
-| `src/utils/engine.ts` | Filter-/Blackening-CSS und OLED-Kurve |
+| `src/utils/engine.ts` | Filter-/Blackening-CSS |
+| `src/utils/curve.ts` | OLED-Tonkurve (Text anheben, Near-Black → `#000`) |
 | `src/utils/detect.ts` | Erkennung, ob eine Seite bereits dunkel ist |
 | `src/entrypoints/popup/` | Popup-UI |
 | `public/_locales/` | Übersetzungen (en, de) |

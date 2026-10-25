@@ -18,7 +18,11 @@ Für Seiten, die **schon dunkel** sind (erkannt über berechnete Hintergrundfarb
 - Gut als schneller Prototyp und als Notlösung für problematische Seiten
 
 ### Umsetzung in M0
-- Filter auf `<html>`: `invert(1) hue-rotate(180deg) url(#ptb-oled-curve)`. Die SVG-Kurve (`feComponentTransfer`) setzt alles unter `blackThreshold` (0,08) auf `#000` und begrenzt Weiß auf `textMax` (0,88 ≈ `#e0e0e0`).
+- Filter auf `<html>`: `invert(1) hue-rotate(180deg) url(#ptb-oled-curve)`. Die SVG-Kurve (`feComponentTransfer`, Code: `src/utils/curve.ts`):
+  - unter `blackThreshold` (0,08) → `#000` (fast weiße Flächen)
+  - darüber Ease-out von `minVisible` (0,08) bis `textMax` (0,94 ≈ `#f0f0f0`): hebt graue Textfarben an (`#666` → ≈ `#c0c0c0`, GitHub `#1f2328` → ≈ `#e8e8e8`), Rahmen bleiben sichtbar
+- Medien bekommen vorab die **exakte Umkehrkurve** (`#ptb-media-curve`), damit sie nicht mit aufgehellt werden: Ergebnis = Original × `textMax`.
+- ~~Lineare Dimmung `v × 0,88`~~ (erste M0-Version): machte grauen Text noch grauer (`#666` → `#878787`), siehe [[Test M0 2026-10-25]].
 - `position: fixed` bleibt intakt, weil der Filter auf dem Root-Element sitzt (die Spezifikation nimmt das Root-Element von der Containing-Block-Regel aus).
 - Content Script nur im Top-Frame. iframes werden vom Elternfilter mit invertiert, deshalb werden sie wie Medien zurückinvertiert.
 
