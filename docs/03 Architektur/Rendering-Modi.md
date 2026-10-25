@@ -20,7 +20,7 @@ Für Seiten, die **schon dunkel** sind (erkannt über berechnete Hintergrundfarb
 ### Umsetzung in M0
 - Filter auf `<html>`: `invert(1) hue-rotate(180deg) url(#ptb-oled-curve)`. Die SVG-Kurve (`feComponentTransfer`, Code: `src/utils/curve.ts`):
   - unter `blackThreshold` (0,08) → `#000` (fast weiße Flächen)
-  - darüber Ease-out von `minVisible` (0,08) bis `textMax` (0,94 ≈ `#f0f0f0`): hebt graue Textfarben an (`#666` → ≈ `#c0c0c0`, GitHub `#1f2328` → ≈ `#e8e8e8`), Rahmen bleiben sichtbar
+  - darüber Ease-out von `minVisible` (0,08) bis `textMax` (0,97 ≈ `#f7f7f7`): hebt graue Textfarben an (`#666` → ≈ `#cccccc`, GitHub `#1f2328` → ≈ `#f3f3f3`), Rahmen bleiben sichtbar
 - Medien bekommen vorab die **exakte Umkehrkurve** (`#ptb-media-curve`), damit sie nicht mit aufgehellt werden: Ergebnis = Original × `textMax`.
 - ~~Lineare Dimmung `v × 0,88`~~ (erste M0-Version): machte grauen Text noch grauer (`#666` → `#878787`), siehe [[Test M0 2026-10-25]].
 - `position: fixed` bleibt intakt, weil der Filter auf dem Root-Element sitzt (die Spezifikation nimmt das Root-Element von der Containing-Block-Regel aus).

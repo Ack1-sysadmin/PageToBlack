@@ -12,7 +12,7 @@ status: offen
 | 3 | Sprache der UI? | DE / EN / beide | Beide | ✅ entschieden → [[ADR-0004 Zweisprachige UI]] |
 | 4 | Build-Tooling? | Vite+CRXJS / WXT / Plain esbuild | WXT | ✅ entschieden (2026-10-25), WXT 0.21 |
 | 5 | Monetarisierung? | Gratis / Spende / Pro-Features | Gratis + Spendenlink | offen |
-| 6 | Zielwerte Textgrau & Near-Black-Schwelle | – | Vorläufig `textMax` 0,94 (`#f0f0f0`), `blackThreshold` 0,08; final per Kalibrier-Testplan in [[Testhardware]] | offen |
+| 6 | Zielwerte Textgrau & Near-Black-Schwelle | – | `textMax` 0,97 (`#f7f7f7`) – vom Projektinhaber auf dem G61SH bestätigt (2026-10-25); `blackThreshold` 0,08 | ✅ vorerst geklärt |
 | 7 | Welches OLED-Panel ist vorhanden? | – | 3× Samsung Odyssey OLED G6 G61SH (QD-OLED) | ✅ geklärt → [[Testhardware]] |
 | 8 | Standardmodus für helle Seiten im MVP | Filter / erst ab Beta dynamisch | Filter im MVP | vorgeschlagen |
 

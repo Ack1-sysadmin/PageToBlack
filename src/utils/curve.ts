@@ -8,8 +8,8 @@ export const OLED = {
   blackThreshold: 0.08,
   /** Darkest visible output; keeps light-grey borders from turning into near-black. */
   minVisible: 0.08,
-  /** Brightest output (~#f0f0f0); black text ends up here instead of pure white. */
-  textMax: 0.94,
+  /** Brightest output (~#f7f7f7); black text ends up here instead of pure white. */
+  textMax: 0.97,
 };
 
 /**

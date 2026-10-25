@@ -17,14 +17,14 @@ test('light page: backgrounds become pure black, highlights are dimmed', async (
   expect(px.card).toEqual([0, 0, 0]);
   // #e5e5e5 borders must stay visible.
   expect(max(px.border)).toBeGreaterThan(15);
-  // Black text becomes near-white (~#f0f0f0), but not pure white.
-  expect(max(px.text)).toBeGreaterThan(230);
-  expect(max(px.text)).toBeLessThan(250);
+  // Black text becomes near-white (~#f7f7f7), but not pure white.
+  expect(max(px.text)).toBeGreaterThan(240);
+  expect(max(px.text)).toBeLessThan(252);
   // Grey text is lifted so it reads as light text, not grey.
   expect(max(px.grey)).toBeGreaterThan(180);
   // Images keep their colours, dimmed by textMax. The photo is a skin tone (#e0ac69);
   // fully saturated colours lose saturation in filter mode (hue-rotate clamping).
-  const dimmed = [0xe0, 0xac, 0x69].map((c) => Math.round(c * 0.94));
+  const dimmed = [0xe0, 0xac, 0x69].map((c) => Math.round(c * 0.97));
   px.photo.forEach((c, i) => expect(Math.abs(c - dimmed[i]!)).toBeLessThan(12));
 });
 
