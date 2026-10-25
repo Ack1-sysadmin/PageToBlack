@@ -18,13 +18,15 @@ status: entwurf
 - [ ] Einstellungen: Textgrau, Near-Black-Schwelle, Bild-Dimmen
 - [ ] Seitenlisten (Ausschluss / fester Modus)
 - [ ] Tastenkürzel
+- [ ] Einfacher Einbrennschutz (statische helle Elemente dimmen) – vorgezogen wegen Mehrmonitor-Setup, siehe [[Testhardware]]
+- [ ] Kalibrier-Testseite (Graustufen-Treppe, Textweiß-Stufen)
 - [ ] Testseiten-Sammlung + Playwright-Screenshots
 
 ## M2 – Beta (1–3 Monate, iterativ)
 - [ ] Dynamischer Modus nach [[Farbalgorithmus]]
 - [ ] CORS-Stylesheets über Service Worker
 - [ ] Shadow DOM / Adopted Stylesheets
-- [ ] Einbrennschutz für statische Elemente
+- [ ] Einbrennschutz erweitern (Profile pro Monitor prüfen)
 - [ ] Site-Fixes als Datendatei
 - [ ] Performance-Messung auf großen Seiten
 

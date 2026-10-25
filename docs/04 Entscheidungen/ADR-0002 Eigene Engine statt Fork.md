@@ -1,6 +1,6 @@
 ---
 tags: [adr]
-status: vorgeschlagen
+status: akzeptiert
 datum: 2026-10-25
 ---
 
@@ -18,7 +18,7 @@ Dark Reader ist MIT-lizenziert und technisch ausgereift. Ein Fork würde sofort 
 | Farblogik | relatives Mapping tief verankert | OLED-Regeln von Anfang an |
 | Eigenständigkeit/Store | „noch ein Dark-Reader-Klon“ | klares eigenes Produkt |
 
-## Entscheidung (Vorschlag)
+## Entscheidung
 **Eigene, schlanke Engine.** Dark Reader dient als Referenz für schwierige Teile (CORS-Stylesheets, Shadow DOM, Observer). Übernommene Code-Stücke werden mit MIT-Hinweis gekennzeichnet.
 
 ## Konsequenzen
@@ -26,4 +26,4 @@ Dark Reader ist MIT-lizenziert und technisch ausgereift. Ein Fork würde sofort 
 - Dynamischer Modus dauert länger als beim Fork
 - Neubewertung nach M1 möglich
 
-> [!question] Wartet auf Bestätigung durch Projektinhaber → [[Offene Fragen]]
+> [!success] Vom Projektinhaber am 2026-10-25 bestätigt.

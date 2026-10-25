@@ -18,6 +18,7 @@ aliases: [Start, Index]
 - [[Dark Reader Analyse]] – Wie Dark Reader funktioniert und was wir übernehmen können
 - [[Chrome Manifest V3]] – Plattform-Rahmenbedingungen
 - [[Wettbewerb]] – Bestehende Lösungen und unsere Lücke
+- [[Testhardware]] – Samsung Odyssey OLED G6 (G61SH) ×3
 
 ## Architektur
 - [[Architekturentwurf]] – Komponenten der Erweiterung
@@ -27,6 +28,8 @@ aliases: [Start, Index]
 ## Entscheidungen (ADR)
 - [[ADR-0001 Manifest V3]]
 - [[ADR-0002 Eigene Engine statt Fork]]
+- [[ADR-0003 MIT-Lizenz]]
+- [[ADR-0004 Zweisprachige UI]]
 
 ## Sonstiges
 - [[Glossar]]

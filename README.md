@@ -17,3 +17,6 @@ Wichtige Notizen:
 - [Machbarkeitsanalyse](docs/02%20Recherche/Machbarkeitsanalyse.md)
 - [Roadmap](docs/01%20Projekt/Roadmap.md)
 - [Offene Fragen](docs/01%20Projekt/Offene%20Fragen.md)
+
+## Lizenz
+[MIT](LICENSE)
